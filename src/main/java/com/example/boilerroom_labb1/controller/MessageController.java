@@ -30,6 +30,16 @@ public class MessageController {
         return messageService.getNumber(id);
     }
 
+    @GetMapping
+    @RequestMapping("/{id}/text")
+    public String getMessageText(
+
+            @PathVariable Long id){
+
+        return messageService.getText(id);
+    }
+
+
     @PostMapping
     public Message createNewMessage(
             @RequestBody

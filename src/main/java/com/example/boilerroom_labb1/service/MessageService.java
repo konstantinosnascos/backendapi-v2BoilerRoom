@@ -27,4 +27,11 @@ public class MessageService {
                 .orElseThrow(() -> new RuntimeException("Message not found"));
         return message.getNumber();
     }
+
+    public String getText(Long id){
+
+        Message message = messageRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Message not found"));
+        return message.getText();
+    }
 }
