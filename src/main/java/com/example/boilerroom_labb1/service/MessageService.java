@@ -4,6 +4,7 @@ import com.example.boilerroom_labb1.entity.Message;
 import com.example.boilerroom_labb1.repository.MessageRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MessageService {
@@ -18,5 +19,12 @@ public class MessageService {
 
     public List<Message> getAllMessages() {
         return messageRepository.findAll();
+    }
+
+    public int getNumber(Long id){
+
+        Message message = messageRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Message not found"));
+        return message.getNumber();
     }
 }

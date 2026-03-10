@@ -20,6 +20,16 @@ public class MessageController {
         return messageService.getAllMessages();
     }
 
+
+    @GetMapping
+    @RequestMapping("/{id}/number")
+    public int getMessageNumber(
+
+            @PathVariable Long id){
+
+        return messageService.getNumber(id);
+    }
+
     @PostMapping
     public Message createNewMessage(
             @RequestBody
