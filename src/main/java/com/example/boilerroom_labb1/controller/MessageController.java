@@ -10,15 +10,22 @@ import java.util.List;
 public class MessageController {
     private final MessageService messageService;
     public MessageController(MessageService messageService) {
+
         this.messageService = messageService;
     }
-    @PostMapping
-    public Message create(){
-        return messageService.createMessage("Hej YH",22);
-    }
+
     @GetMapping
     public List<Message> getAllMessages(){
+
         return messageService.getAllMessages();
+    }
+
+    @PostMapping
+    public Message createNewMessage(
+            @RequestBody
+            Message message){
+        return messageService.createMessage(
+                message.getText(),message.getNumber());
     }
 
 
