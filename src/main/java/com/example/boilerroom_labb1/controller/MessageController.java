@@ -1,7 +1,7 @@
 package com.example.boilerroom_labb1.controller;
 
-import  com.example.boilerroom_labb1.entity.Message;
-import  com.example.boilerroom_labb1.service.MessageService;
+import com.example.boilerroom_labb1.entity.Message;
+import com.example.boilerroom_labb1.service.MessageService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -21,19 +21,15 @@ public class MessageController {
     }
 
 
-    @GetMapping
-    @RequestMapping("/{id}/number")
+    @GetMapping("/{id}/number")
     public int getMessageNumber(
-
             @PathVariable Long id){
 
         return messageService.getNumber(id);
     }
 
-    @GetMapping
-    @RequestMapping("/{id}/text")
+    @GetMapping("/{id}/text")
     public String getMessageText(
-
             @PathVariable Long id){
 
         return messageService.getText(id);
@@ -47,6 +43,4 @@ public class MessageController {
         return messageService.createMessage(
                 message.getText(),message.getNumber());
     }
-
-
 }
